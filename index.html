@@ -33,9 +33,15 @@
                     renderer.setSize(window.innerWidth, window.innerHeight);
                });
 
-               const geometry = new THREE.SphereGeometry(15, 15, 20);
-               const material = new THREE.MeshBasicMaterial({ color: "#fff", wireframe: false });
-               const sphere = new THREE.Mesh(geometry, material);
+               const geometry = new THREE.SphereGeometry(20, 20, 100);
+               const material = new THREE.MeshBasicMaterial({ color: "#fff", wireframe: true });
+               const sphereMaterial = new THREE.MeshBasicMaterial({
+                    map: new THREE.TextureLoader().load("./img/earthmap1k.jpg"),
+                    side: THREE.DoubleSide,
+                    wireframe: false
+               });
+
+               const sphere = new THREE.Mesh(geometry, sphereMaterial);
 
                const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
